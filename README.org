@@ -1,0 +1,5 @@
+* Oryx with custom QMK (personal)
+
+This fork contains any overrides that I make for my ZSA Voyager keyboard with Navigator trackball add-on.
+Currently this is limited to changing the Navigator scrolling speed/acceleration settings in ~config.h~.
+I'll try to keep a centralized list of my overrides here so I can get a quick overview if I need to debug anything.
