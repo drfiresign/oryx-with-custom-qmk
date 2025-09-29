@@ -18,10 +18,10 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(7, KC_F10)
-#define DUAL_FUNC_1 LT(11, KC_H)
-#define DUAL_FUNC_2 LT(7, KC_F15)
-#define DUAL_FUNC_3 LT(14, KC_I)
+#define DUAL_FUNC_0 LT(1, KC_F1)
+#define DUAL_FUNC_1 LT(12, KC_C)
+#define DUAL_FUNC_2 LT(3, KC_F23)
+#define DUAL_FUNC_3 LT(13, KC_U)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -39,8 +39,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [2] = LAYOUT_voyager(
-    NAVIGATOR_DEC_CPI,NAVIGATOR_INC_CPI,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_AIM,                                  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,                                     LALT(KC_LEFT),  LALT(KC_RIGHT), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    NAVIGATOR_DEC_CPI,NAVIGATOR_INC_CPI,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_AIM,                                  KC_MS_BTN1,     KC_MS_BTN2,     KC_MS_BTN3,     TOGGLE_SCROLL,  KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,                                     LALT(KC_LEFT),  LALT(KC_RIGHT), DRAG_SCROLL,    NAVIGATOR_AIM,  KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN1,     KC_HYPR,                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     TOGGLE_SCROLL,  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DRAG_SCROLL,                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_LLCK,        
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
@@ -83,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [8] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,                                     KC_TRANSPARENT, DM_REC1,        DM_REC2,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN1,     DRAG_SCROLL,                                    KC_TRANSPARENT, DM_PLY1,        DM_PLY2,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_ENTER), KC_ENTER,       LCTL(KC_ENTER),                                 LCTL(KC_ENTER), KC_ENTER,       LSFT(KC_ENTER), DM_RSTP,        KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN1,     KC_HYPR,                                        KC_TRANSPARENT, DM_PLY1,        DM_PLY2,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LSFT(KC_ENTER), DRAG_SCROLL,                                    KC_TRANSPARENT, LSFT(KC_ENTER), KC_TRANSPARENT, DM_RSTP,        KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
@@ -143,7 +143,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {154,136,73}, {154,136,73}, {154,136,73}, {154,136,73}, {0,0,0}, {0,0,0}, {0,0,0}, {73,72,148}, {73,72,148}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {154,136,73}, {154,136,73}, {154,136,73}, {154,136,73}, {0,0,0}, {0,0,0}, {0,0,0}, {73,72,148}, {73,72,148}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    [2] = { {218,123,87}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {200,218,204}, {218,191,201}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {139,218,205}, {139,218,205}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {10,218,204}, {0,0,0}, {0,0,0} },
+    [2] = { {218,123,87}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {200,218,204}, {218,191,201}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,123,87}, {0,0,0}, {0,0,0}, {200,218,204}, {200,218,204}, {200,218,204}, {218,123,87}, {0,0,0}, {0,0,0}, {139,218,205}, {139,218,205}, {218,123,87}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {10,218,204}, {0,0,0}, {0,0,0} },
 
     [3] = { {0,0,0}, {36,39,220}, {36,39,220}, {36,39,220}, {36,39,220}, {36,39,220}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {255,204,200}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {36,39,220}, {36,39,220}, {36,39,220}, {36,39,220}, {36,39,220}, {36,39,220}, {23,237,142}, {24,218,251}, {24,218,251}, {24,218,251}, {23,237,142}, {36,39,220}, {23,237,142}, {24,218,251}, {24,218,251}, {24,218,251}, {23,237,142}, {23,237,142}, {23,237,142}, {24,218,251}, {24,218,251}, {24,218,251}, {23,237,142}, {23,237,142}, {0,0,0}, {36,67,200} },
 
@@ -155,7 +155,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [7] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {24,218,204}, {218,83,143}, {218,83,143}, {218,83,143}, {24,218,204}, {0,255,233}, {24,218,204}, {10,218,204}, {10,218,204}, {10,218,204}, {24,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {89,83,143}, {89,83,143}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {24,218,204}, {218,83,143}, {218,83,143}, {218,83,143}, {218,83,143}, {218,83,143}, {24,218,204}, {10,218,204}, {10,218,204}, {10,218,204}, {10,218,204}, {10,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {89,83,143}, {89,83,143} },
 
-    [8] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {200,218,204}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {199,72,190}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {199,72,190}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {239,178,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [8] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {200,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {218,123,87}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {199,72,190}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {200,218,204}, {199,72,190}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {239,178,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -233,9 +233,6 @@ bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
     case NAVIGATOR_INC_CPI ... NAVIGATOR_AIM:
     case DRAG_SCROLL:
     case TOGGLE_SCROLL:
-    case KC_MS_BTN3:
-    case KC_MS_BTN2:
-    case KC_MS_BTN1:
       return true;
   }
   return is_mouse_record_user(keycode, record);
