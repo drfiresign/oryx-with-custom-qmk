@@ -18,11 +18,11 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(10, KC_F15)
-#define DUAL_FUNC_1 LT(12, KC_5)
-#define DUAL_FUNC_2 LT(15, KC_F13)
-#define DUAL_FUNC_3 LT(13, KC_K)
-#define DUAL_FUNC_4 LT(4, KC_U)
+#define DUAL_FUNC_0 LT(1, KC_F16)
+#define DUAL_FUNC_1 LT(1, KC_F15)
+#define DUAL_FUNC_2 LT(12, KC_X)
+#define DUAL_FUNC_3 LT(10, KC_L)
+#define DUAL_FUNC_4 LT(11, KC_X)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -227,16 +227,12 @@ extern bool set_scrolling;
 extern bool navigator_turbo;
 extern bool navigator_aim;
 void pointing_device_init_user(void) {
-    set_auto_mouse_enable(true);
+  set_auto_mouse_enable(true);
 }
-bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    case NAVIGATOR_INC_CPI ... NAVIGATOR_AIM:
-    case DRAG_SCROLL:
-    case TOGGLE_SCROLL:
-      return true;
-  }
-  return is_mouse_record_user(keycode, record);
+
+bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
+  // All keys are not mouse keys when one shot auto mouse is enabled.
+  return false;
 }
 
 
@@ -272,7 +268,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
           layer_on(4);
         } else {
-          layer_off(4);
+          if (!is_layer_locked(4)) {
+            layer_off(4);
+          }
         }  
       }  
       return false;
